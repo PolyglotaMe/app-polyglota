@@ -9,7 +9,7 @@ import { signIn } from "next-auth/react";
 export default function LoginBox() {
   return (
     <motion.div
-      className="md:p-12 p-6 flex flex-col rounded-3xl gradient-border-corners z-10 md:mr-[600px] md:mb-28 max-w-[500px]"
+      className="md:p-12 p-6 py-4 md:py-12 flex flex-col rounded-3xl gradient-border-corners z-10 md:mr-[600px] md:mb-28 max-w-[500px]"
       initial={{ scale: 0.98, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.98, opacity: 0 }}
@@ -37,7 +37,7 @@ export default function LoginBox() {
         <GoogleBox />
       </button>
 
-      <span className="font-medium text-base mt-6 text-gray-400 text-center ">
+      <span className="font-medium text-xs md:text-base mt-6 text-gray-400 text-center ">
         Ao entrar na Polyglota você concorda com nossos termos e condições.
       </span>
     </motion.div>
