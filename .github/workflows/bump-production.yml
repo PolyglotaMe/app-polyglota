@@ -19,7 +19,7 @@ jobs:
       - name: Clone repository and trigger build
         run: |
           git clone https://user:$GITHUB_TOKEN@github.com/PolyglotaMe/app-polyglota
-          cd internet-banking-fe
+          cd app-polyglota
           git fetch
           git checkout main
           git config user.name "PolyglotaMe"
