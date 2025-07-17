@@ -1,0 +1,31 @@
+name: CI - PRD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  clone:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if commit was made by GitHub Actions
+        run: |
+          # Verifica se o commit anterior contém a string "[skip ci]"
+          if git log -1 --pretty=%B | grep -q "\[skip ci\]"; then
+            echo "This commit contains [skip ci]. Skipping CI..."
+            exit 0
+          fi
+
+      - name: Clone repository and trigger build
+        run: |
+          git clone https://user:$GITHUB_TOKEN@github.com/PolyglotaMe/app-polyglota
+          cd internet-banking-fe
+          git fetch
+          git checkout main
+          git config user.name "PolyglotaMe"
+          git config user.email "tech@polyglota.me"
+          # Commit com [skip ci] para evitar loops
+          git commit --allow-empty -m "[PRD] - Trigger vercel build [skip ci]"
+          git push https://user:$GITHUB_TOKEN@github.com/PolyglotaMe/app-polyglota main -f
+        env:
+          GITHUB_TOKEN: ${{ secrets.VERCEL_DEPLOY_KEY }}
