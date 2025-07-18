@@ -4,7 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ChatsTeardropIcon } from "@phosphor-icons/react/dist/ssr";
 import GoogleBox from "../google-box";
-import { signIn } from "next-auth/react";
 
 export default function LoginBox() {
   return (
@@ -30,12 +29,9 @@ export default function LoginBox() {
         real.
       </span>
 
-      <button
-        onClick={() => signIn("google")}
-        className="cursor-pointer  mt-10 "
-      >
+      <div className="cursor-pointer  mt-10 ">
         <GoogleBox />
-      </button>
+      </div>
 
       <span className="font-medium text-xs md:text-base mt-6 text-gray-400 text-center ">
         Ao entrar na Polyglota você concorda com nossos termos e condições.

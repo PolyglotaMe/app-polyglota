@@ -4,6 +4,9 @@
   --background: #1c2127;
   --foreground: #1c2127;
   --primary: #3d9cfb;
+  --border: #2e3238;
+  --box-background: #252a30;
+  --green: #23c55e;
 }
 
 @theme inline {
@@ -11,6 +14,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-onest-sans);
   --color-primary: var(--primary);
+  --color-border: var(--border);
+  --color-box-background: var(--box-background);
+  --color-green: var(--green);
 }
 
 @media (prefers-color-scheme: dark) {

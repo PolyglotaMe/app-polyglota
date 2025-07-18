@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Onest } from "next/font/google";
 import "./globals.css";
+import { SessionProvider } from "./providers/session-provider";
 
 const onestSans = Onest({
   variable: "--font-onest-sans",
@@ -25,7 +26,7 @@ export default function RootLayout({
           background: "#1c2127",
         }}
       >
-        {children}
+        <SessionProvider>{children}</SessionProvider>
       </body>
     </html>
   );
